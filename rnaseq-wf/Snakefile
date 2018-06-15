@@ -270,7 +270,6 @@ rule bam_index:
         'samtools index {input} {output}'
 
 
-
 rule fastq_screen:
     """
     Run fastq_screen to look for contamination from other genomes
@@ -280,11 +279,11 @@ rule fastq_screen:
         dm6=c.refdict['dmel'][config['aligner']['tag']]['bowtie2'],
         rRNA=c.refdict[c.assembly][config['rrna']['tag']]['bowtie2'],
         phix=c.refdict['phix']['default']['bowtie2'],
-        ercc=refdict['ercc']['srm2374']['bowtie2'],
-        hg19=refdict['human']['gencode-v19']['bowtie2'],
-        wolbachia=refdict['wolbachia']['default']['bowtie2'],
-        ecoli=refdict['ecoli']['default']['bowtie2'],
-        yeast=refdict['sacCer3']['default']['bowtie2'],
+        ercc=c.refdict['ercc']['srm2374']['bowtie2'],
+        hg19=c.refdict['human']['gencode-v19']['bowtie2'],
+        wolbachia=c.refdict['wolbachia']['default']['bowtie2'],
+        ecoli=c.refdict['ecoli']['default']['bowtie2'],
+        yeast=c.refdict['sacCer3']['default']['bowtie2'],
     output:
         txt=c.patterns['fastq_screen']
     log:
